@@ -1,0 +1,33 @@
+<html>
+  <body>
+    <h1>Clase 1</h1>
+    <p>
+      En esta clase vamos a ver como hacer un calculo.
+    </p>
+    <script>
+      var input1 = prompt('First?');
+      var input2 = prompt('Second?');
+
+      var num1 = parseFloat(input1);
+      var num2 = parseFloat(input2);
+
+      //declaracion aqui no se ha sumado nada
+      function add(n1, n2) {
+        var result = n1 + n2;
+        // ... aqui puede existir mas codigo
+        return result;
+      }
+
+      // ejecutando la funcion
+      var res = add(num1, num2);
+      alert(res);
+      res = add(res, num1);
+      alert(res);
+      
+
+      // Esta linea es para pedir datos
+      // var nombre = prompt("What's your name?");
+      // alert("Hola " + nombre);
+    </script>
+  </body>
+</html>
