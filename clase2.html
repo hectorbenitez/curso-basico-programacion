@@ -1,0 +1,62 @@
+<html>
+
+  <body>
+    <h1>Curso Js</h1>
+    <ul>
+      <li>Condicionales</li>
+      <li>Ciclos</li>
+    </ul>
+    <script>
+      // factorial, el producto de todos los numeros anteriores al que buscamos
+      // 0 -> 1 CASO ESPECIAL
+      // 1 -> 1
+      // 2 -> 2
+      // 3 -> 6
+      // 4 -> 24
+      // 5 -> 120
+
+      var input = parseInt(prompt('Factorial?'));
+      var output;
+      
+     	function factorial0() {
+        alert('factorial de 0');
+        return 1;
+      }
+      
+      function factorial(num) {
+        if (num == 0) {
+          return factorial0();	
+        }
+      
+        var resultado = 1;
+        for (var i = 1; i <= num; i++) {
+          resultado = resultado * i;
+        }
+        
+        return resultado;
+      }
+      
+      output = factorial(input);
+      alert(output);
+      
+      
+
+
+      /* var valor = prompt('Number?');
+      if (valor > 5) {
+        alert('Es mayor');
+      } else if (valor == 5) {
+        alert('Es igual');
+      } else {
+        alert('Es menor');
+      } */
+
+      /* for (var i = 1;i <= 3;i = i + 1) {
+        // ... codigo...
+        alert(i);
+      } */
+
+    </script>
+  </body>
+
+</html>
