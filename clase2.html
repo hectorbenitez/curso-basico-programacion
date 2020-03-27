@@ -1,5 +1,4 @@
 <html>
-
   <body>
     <h1>Curso Js</h1>
     <ul>
@@ -15,32 +14,29 @@
       // 4 -> 24
       // 5 -> 120
 
-      var input = parseInt(prompt('Factorial?'));
-      var output;
-      
-     	function factorial0() {
-        alert('factorial de 0');
-        return 1;
-      }
-      
-      function factorial(num) {
-        if (num == 0) {
-          return factorial0();	
-        }
-      
-        var resultado = 1;
-        for (var i = 1; i <= num; i++) {
-          resultado = resultado * i;
-        }
-        
-        return resultado;
-      }
-      
-      output = factorial(input);
-      alert(output);
-      
-      
+      var input = parseInt(prompt('Factorial?'))
+      var output
 
+      function factorial0 () {
+        alert('factorial de 0')
+        return 1
+      }
+
+      function factorial (num) {
+        if (num == 0) {
+          return factorial0()
+        }
+
+        var resultado = 1
+        for (var i = 1; i <= num; i++) {
+          resultado = resultado * i
+        }
+
+        return resultado
+      }
+
+      output = factorial(input)
+      alert(output)
 
       /* var valor = prompt('Number?');
       if (valor > 5) {
@@ -55,8 +51,6 @@
         // ... codigo...
         alert(i);
       } */
-
     </script>
   </body>
-
 </html>
