@@ -1,0 +1,75 @@
+<html>
+  <body>
+    <h1>
+      Clase 3
+    </h1>
+    <ul>
+      <li>Arreglos</li>
+      <li>Boleanos</li>
+      <li>Ciclos anidados</li>
+    </ul>
+
+    <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf" target="_blank">Keyboard shortcuts</a>
+    <script>
+    	// 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97,
+
+    	function isPrime(num) {
+      	if (num < 2) {
+        	return false;
+        }
+
+      	for(var i = 2; i <= num; i++) {
+        	if (num % i == 0) {
+          	return false;
+          }
+        }
+
+        return true;
+      }
+
+      function factorial0() {
+        return 1;
+      }
+
+      function factorial(num) {
+        if (num == 0) {
+          return factorial0();
+        }
+
+        var resultado = 1;
+        for (var i = 1; i <= num; i++) {
+          resultado = resultado * i;
+        }
+
+        return resultado;
+      }
+
+      var input = parseInt(prompt('Number?'));
+      var res = isPrime(input);
+      if (res == true) {
+      	alert('is prime');
+      } else {
+      	alert('not');
+      }
+
+      // indices 0
+      /* var arreglo = [1, 2, 3, 4]; // length 3
+      var resultados = [];
+
+      for (var i = 0; i < arreglo.length; i++) {
+        if(arreglo[i] > 0) {
+
+        } else {
+
+        }
+
+        var res = factorial(arreglo[i]);
+        alert(res);
+        resultados.push(res);
+      }
+
+      alert(resultados.length); */
+
+    </script>
+  </body>
+</html>
