@@ -1,0 +1,113 @@
+<html>
+  <body>
+    <h1 style="color: red;">
+      Clase 4
+    </h1>
+
+    <h3 style="color: blue;">Factorial</h3>
+    Dame un numero: <input id="input-factorial" type="text" /> <button onclick="clickFactorial()">
+    Calcular factorial
+    </button>
+    <div id="resultado-factorial" >
+     
+    </div>
+    <hr/>
+    <h3>Primos</h3>
+    Dame un numero: <input id="input-prime" type="text" /> <button onclick="clickPrime()">
+    Es primo?
+    </button>
+    <div id="resultado-prime">
+    
+    </div>
+    
+    <a href="clase3.html">
+      <img src="Hummingbird.jpg" />
+    </a>
+
+    <a href="https://google.com" >
+      Link Texto
+    </a>
+    
+    <script>
+      // [] solo con arreglos
+      // () funciones, if, for
+      // {} solo bloques de codigo
+    	// 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97,
+    
+      function clickFactorial() {
+        var element = document.getElementById('input-factorial');
+        var input = parseInt(element.value);
+        var res = factorial(input);
+        document.getElementById('resultado-factorial').innerHTML = 'Resultado: ' + res;
+      }
+
+      function clickPrime() {
+        var element = document.getElementById('input-prime');
+        var input = parseInt(element.value);
+        var res = isPrime(input);
+        console.log(res);
+
+        document.getElementById('resultado-prime').innerHTML = 'Resultado: ' + res;
+      }
+
+    	function isPrime(num) {
+      	if (num < 2) {
+        	return false;
+        }
+      
+      	for(var i = 2; i < num; i++) {
+        	if (num % i == 0) {
+          	return false;
+          }
+        }
+        
+        return true;
+      }
+    
+      function factorial0() {
+        return 1;
+      }
+
+      function factorial(num) {
+        if (num == 0) {
+          return factorial0();
+        }
+
+        var resultado = 1;
+        for (var i = 1; i <= num; i++) {
+          resultado = resultado * i;
+        }
+
+        return resultado;
+      }
+      
+      /* var input = parseInt(prompt('Number?'));
+      var res = isPrime(input);
+      if (res == true) {
+        alert('is prime');
+      } else {
+        alert('not');
+      } */
+
+      // indices 0
+      /* var arreglo = [1, 2, 3, 4]; // length 3
+      var resultados = [];
+      
+      for (var i = 0; i < arreglo.length; i++) {
+        if(arreglo[i] > 0) {
+        
+        } else {
+        
+        }
+      
+        var res = factorial(arreglo[i]);
+        alert(res);
+        resultados.push(res);
+      }
+      
+      alert(resultados.length); */
+
+    </script>
+  </body>
+</html>
+
