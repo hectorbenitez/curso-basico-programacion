@@ -1,0 +1,147 @@
+<html>
+  <head>
+    <title>Clase 5 - Graficas</title>
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <h1>Clase 5</h1>
+    <ul>
+      <li>Graficas</li>
+    </ul>
+    <div id="chart_div"></div>
+    <script>
+      // bloque 1
+      // function() {
+      //  bloque 1.1
+      //  if () { bloque 1.1.1 }
+      // }
+      //
+      // function () { bloque 1.2 } 
+
+      $.get(
+        'https://api.apify.com/v2/key-value-stores/lluBbYoQVN65R3BGO/records/LATEST?disableRedirect=true',
+        function (data) {
+          
+          var lastUpdate = data.lastUpdatedAtApify;
+          var regions = data.regions
+          var chartData = []
+          for (var i = 1; i < regions.length; i++) {
+            var localidad = [regions[i].region, parseInt(regions[i].total)]
+
+            chartData.push(localidad)
+          }
+
+          // Load the Visualization API and the corechart package.
+          google.charts.load('current', { packages: ['corechart'] })
+
+          // Set a callback to run when the Google Visualization API is loaded.
+          google.charts.setOnLoadCallback(drawChart)
+
+          // Callback that creates and populates a data table,
+          // instantiates the pie chart, passes in the data and
+          // draws it.
+          function drawChart () {
+            // Create the data table.
+            var data = new google.visualization.DataTable()
+            data.addColumn('string', 'Region')
+            data.addColumn('number', 'Casos')
+
+            data.addRows(chartData)
+
+            // int, strings, booleans, arrays, object
+            // var object = {
+            //   prop1: 1,
+            //   prop2: 3
+            // };
+
+            // object['prop1'];
+
+            // var array = [
+            //   1, 2, 3
+            // ];
+            // array[0]; array[2] = 5;
+
+            //objeto
+            // var hector = {
+            //   age: 45,
+            //   country: 'MX'
+            // }
+
+            // // objeto
+            // var paco = {
+            //   age: 50,
+            //   country: 'US'
+            // }
+
+            // // array
+            // var teamBlue = [
+            //   hector, paco
+            // ];
+
+            // for(var i = 0; i < teamBlue.length; i++) {
+            //   var element = teamBlue[i];
+            //   alert(element.age);
+            // }
+
+            // RGB Red/Green/Blue
+            // 00-00-00     FF-FF-FF
+
+            // Set chart options
+            var options = {
+              title: 'Covid-19 Cases per day. Last Update: ' + lastUpdate,
+              curveType: 'function',
+              colors: ['#158D20', '#FF4600'],
+              hAxis: {
+                title: 'Days',
+                textStyle: {
+                  color: '#000000',
+                  fontSize: 14,
+                  fontName: 'Arial',
+                  bold: false,
+                  italic: false
+                },
+                titleTextStyle: {
+                  color: '#000000',
+                  fontSize: 16,
+                  fontName: 'Arial',
+                  bold: true,
+                  italic: false
+                }
+              },
+              vAxis: {
+                title: 'Cases',
+                textStyle: {
+                  color: '#000000',
+                  fontSize: 14,
+                  bold: false
+                },
+                titleTextStyle: {
+                  color: '#ff0000',
+                  fontSize: 24,
+                  bold: true,
+                  italic: false
+                }
+              },
+              width: 1600,
+              height: 600
+            }
+
+            // Instantiate and draw our chart, passing in some options.
+            var chart = new google.visualization.BarChart(
+              document.getElementById('chart_div')
+            )
+            chart.draw(data, options)
+          }
+        }
+      )
+    </script>
+  </body>
+</html>
